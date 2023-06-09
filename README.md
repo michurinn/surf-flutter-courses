@@ -12,8 +12,7 @@ You can describe your results in any language that is convenient for you, not ju
 
 ## Problems
 
-[Describe the problems you encountered]
-
+Возможно, моя идея удаления дубликатов методом toSet() - не лучшая?
 ## More
 
 [Here you can brag about what you managed to implement or do something beyond the task]
