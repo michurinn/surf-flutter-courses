@@ -1,19 +1,18 @@
 # Description of your result
 
-You can describe your results in any language that is convenient for you, not just English.
-
+Информация не основана на твёрдых научных убеждених и носит развлекательный характер.
 ## Description
 
-[Describe what you have done]
-
+Создан класс Halogen, объекты которого будут имитировать поведение реальных елементов группы Галогены.
+Основноая задача галогенов - окисление (как правило при взаимодейтсвии с металлом)
 ## How to
 
-[Describe how to run your application if there are any issues]
-
+Миксин Reactions используется для возможности дальнейшего использования в прочих классах (группах елементов)
+Абстрактный класс PeriodicElement содержит информацию, не использующуюся напрямую для описания химических реакций, поетому вынесен отдельно.
+Поскольку список Галогенов предопределён по смыслу (конечный список реальных елементов), используются именованные конструкторы по названию елемента
+(могут быть также по требуемым свойствам)
 ## Problems
-
-[Describe the problems you encountered]
-
+Не предусмотрена возможность создания молекул/ионов ( атомарные елементы в природе встречаются редко).
 ## More
 
 [Here you can brag about what you managed to implement or do something beyond the task]
