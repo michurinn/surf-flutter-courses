@@ -1,20 +1,15 @@
 # Description of your result
 
-You can describe your results in any language that is convenient for you, not just English.
-
+Создана иерархия классов Human->Fighter->Boxer
 ## Description
 
-[Describe what you have done]
-
+Класс Human содержит поле name, присущее всем людям.
+Класс Fighter описывает информацию, присущую всем бойцам независимо от направления.
+Класс Boxer может содерать информацию, характерную только для боксёров (здесь - стиль боя).
 ## How to
-
-[Describe how to run your application if there are any issues]
 
 ## Problems
 
-[Describe the problems you encountered]
-
+К сожалению, доступ ко всем полям получился через . , как бы сдлеать правильнее?
 ## More
-
-[Here you can brag about what you managed to implement or do something beyond the task]
 
