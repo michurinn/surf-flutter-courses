@@ -34,4 +34,4 @@ void main() {
   );
 }
 
-typedef Strategy = Function(List<String> cardOnDesk, List<String> currentHand);
+typedef Strategy = double Function(List<String> cardOnDesk, List<String> currentHand);
