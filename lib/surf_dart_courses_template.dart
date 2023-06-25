@@ -9,12 +9,8 @@ void main(List<String> args) {
 
 //Требуемая функция
 List<Good> applyFilter(List<Good> goods, IFilter filter) {
-  final result = <Good>[];
-  for (final good in goods) {
-    if (filter.apply(good, filter._filterField)) {
-      result.add(good);
-    }
-  }
+  late final result;
+  result = goods.where((good) => filter.apply(good)).toList();
   return result;
 }
 
@@ -51,59 +47,42 @@ List<Good> parseDB(String db) {
 
 // Интерфейс фильтра, Интерфейс Filter — абстрактный класс с методом `apply`,
 // принимает товар и возвращает `true`, если товар подходит под требования фильтра, иначе `false`.
-abstract class IFilter<T> {
-  final T _filterField;
-
-  IFilter(this._filterField);
-  bool apply(Good good, T _filterField);
+abstract class IFilter {
+  bool apply(Good good);
 }
 
 // Фильтрация товаров по категориям
-class FilterCategory implements IFilter<GoodCategories> {
+class FilterCategory implements IFilter {
   final GoodCategories _filterField;
 
   FilterCategory(this._filterField);
   @override
-  bool apply(Good good, _filterField) {
+  bool apply(Good good) {
     return good.type == _filterField;
   }
 }
 
 // Фильтрация товаров по по цене (не больше указанной);
-class FilterPrice implements IFilter<double> {
+class FilterPrice implements IFilter {
   final double maximalPrice;
 
   FilterPrice({required this.maximalPrice});
   @override
-  bool apply(Good good, double maximalPrice) {
-    if (good.price != null && good.price! <= maximalPrice) {
-      return true;
-    } else {
-      return false;
-    }
+  bool apply(Good good) {
+    return good.price != null && good.price! <= maximalPrice;
   }
-
-  @override
-  double get _filterField => maximalPrice;
 }
 
 // Фильтрация товаров по количеству остатков на складе (меньше указанной).
-class FilterCount implements IFilter<double> {
+class FilterCount implements IFilter {
   final double minimalCount;
 
   FilterCount({required this.minimalCount});
 
   @override
-  bool apply(Good good, double _filterField) {
-    if (good.count != null && good.count! >= _filterField) {
-      return true;
-    } else {
-      return false;
-    }
+  bool apply(Good good) {
+    return good.count != null && good.count! >= minimalCount;
   }
-
-  @override
-  double get _filterField => minimalCount;
 }
 
 class Good {

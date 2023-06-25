@@ -20,6 +20,7 @@ class FilterCategory implements IFilter<GoodCategories> {
     return good.type == _filterField;
   }
 }
+
 или передавать параметр как в способе ниже:
 class FilterPrice implements IFilter<double> {
   final double maximalPrice;
